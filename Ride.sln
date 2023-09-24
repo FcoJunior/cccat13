@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ride", "Ride\Ride.csproj", "{69870848-AC4C-490E-9BBB-B7EBE60A2432}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ride.Tests", "Ride.Tests\Ride.Tests.csproj", "{19F4F270-F495-4F1E-A032-ABA4B83B3E0A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{69870848-AC4C-490E-9BBB-B7EBE60A2432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69870848-AC4C-490E-9BBB-B7EBE60A2432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69870848-AC4C-490E-9BBB-B7EBE60A2432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69870848-AC4C-490E-9BBB-B7EBE60A2432}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19F4F270-F495-4F1E-A032-ABA4B83B3E0A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19F4F270-F495-4F1E-A032-ABA4B83B3E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19F4F270-F495-4F1E-A032-ABA4B83B3E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19F4F270-F495-4F1E-A032-ABA4B83B3E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
