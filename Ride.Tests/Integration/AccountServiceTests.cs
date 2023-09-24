@@ -35,4 +35,69 @@ public sealed class AccountServiceTests
         Assert.Equal(input.Email, account.Email);
         Assert.Equal(input.Cpf, account.Cpf);
     }
+
+    [Fact(DisplayName = "Não deve criar um passageiro com cpf inválido")]
+    public async void Singup_WhenCpfInvalid_ShouldThrowException()
+    {
+        InputSignUp input = new (
+            "John Doe",
+            $"john.doe{Guid.NewGuid().ToString()}@gmail.com",
+            "95818705500",
+            true,
+            false,
+            null
+        );
+        var action = async () => await _signup.Execute(input);
+        var exception = await Assert.ThrowsAsync<Exception>(action);
+        Assert.Equal("Invalid cpf", exception.Message);
+    }
+    
+    [Fact(DisplayName = "Não deve criar um passageiro com nome inválido")]
+    public async void Singup_WhenNameInvalid_ShouldThrowException()
+    {
+        InputSignUp input = new (
+            "John",
+            $"john.doe{Guid.NewGuid().ToString()}@gmail.com",
+            "95818705552",
+            true,
+            false,
+            null
+        );
+        var action = async () => await _signup.Execute(input);
+        var exception = await Assert.ThrowsAsync<Exception>(action);
+        Assert.Equal("Invalid name", exception.Message);
+    }
+    
+    [Fact(DisplayName = "Não deve criar um passageiro com email inválido")]
+    public async void Singup_WhenEmailInvalid_ShouldThrowException()
+    {
+        InputSignUp input = new (
+            "John Doe",
+            $"john.doe@",
+            "95818705552",
+            true,
+            false,
+            null
+        );
+        var action = async () => await _signup.Execute(input);
+        var exception = await Assert.ThrowsAsync<Exception>(action);
+        Assert.Equal("Invalid email", exception.Message);
+    }
+    
+    [Fact(DisplayName = "Não deve criar um passageiro com conta existente")]
+    public async void Singup_WhenPassengerAlreadyExists_ShouldThrowException()
+    {
+        InputSignUp input = new (
+            "John Doe",
+            $"john.doe{Guid.NewGuid().ToString()}@gmail.com",
+            "95818705552",
+            true,
+            false,
+            null
+        );
+        await _signup.Execute(input);
+        var action = async () => await _signup.Execute(input);
+        var exception = await Assert.ThrowsAsync<Exception>(action);
+        Assert.Equal("Account already exists", exception.Message);
+    }
 }
